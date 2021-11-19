@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.happyhouse.mapper.QnaMapper">
+
+	<select id="selectAll" resultType="QnaDto">
+		select *
+		from qna
+		order by no
+	</select>
+	
+	<select id="getQuestions" resultType="QnaDto">
+		select *
+		from qna
+		where questionNo is null
+		order by no
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="QnaDto">
+		select *
+		from qna
+		where no = #{no}
+	</select>
+	
+	<insert id="addOne" parameterType="QnaDto">
+		insert into qna (title, content, date, id, questionNo)
+		values (#{title}, #{content}, sysdate(), #{id}, #{questionNo})
+	</insert>
+	
+	<delete id="deleteOne" parameterType="int">
+		delete
+		from qna
+		where no = #{no}
+	</delete>
+	
+	<update id="updateOne" parameterType="QnaDto">
+		update qna 
+		set title = #{title}, content = #{content}
+		where no = ${no}
+	</update>
+	
+	<select id="searchByTitle" parameterType="string" resultType="QnaDto">
+		select *
+		from qna
+		where title like concat('%',#{title},'%');
+	</select>
+	
+	<select id="getAnswers" parameterType="int" resultType="string">
+		select no
+		from qna
+		where questionNo = #{no}
+	</select>
+
+</mapper>
