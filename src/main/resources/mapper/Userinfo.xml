@@ -4,7 +4,7 @@
 
 <mapper namespace="com.happyhouse.mapper.UserMapper">
 
-	<insert id="signUp" parameterType="UserInfoDto" >
+	<insert id="addUser" parameterType="UserInfoDto" >
 		insert into userinfo(id, password, email, name, lat, lng)
 		values(#{id}, #{password}, #{email}, #{name}, #{lat}, #{lng})
 	</insert>

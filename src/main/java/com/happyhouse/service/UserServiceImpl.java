@@ -13,8 +13,8 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public void signUp(UserInfoDto userInfoDto) throws Exception {
-		userMapper.signUp(userInfoDto);
+	public void addUser(UserInfoDto userInfoDto) throws Exception {
+		userMapper.addUser(userInfoDto);
 	}
 
 	@Override
