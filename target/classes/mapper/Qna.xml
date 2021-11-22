@@ -34,6 +34,12 @@
 		where no = #{no}
 	</delete>
 	
+	<delete id="deleteAnswer" parameterType="int">
+		delete
+		from qna
+		where questionNo = #{no}
+	</delete>
+	
 	<update id="updateOne" parameterType="QnaDto">
 		update qna 
 		set title = #{title}, content = #{content}
