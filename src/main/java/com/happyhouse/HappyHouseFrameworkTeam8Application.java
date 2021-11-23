@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HappyHouseFrameworkTeam8Application {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(HappyHouseFrameworkTeam8Application.class, args);
 	}
 }

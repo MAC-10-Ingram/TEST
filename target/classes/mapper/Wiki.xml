@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.happyhouse.mapper.WikiMapper">
+
+	<select id="selectAll">
+		select *
+		from wikipage
+		order by wdate desc
+	</select>
+	
+	<select id="searchByTitle" parameterType="string" resultType="WikiMetaDto">
+		select *
+		from wikipage
+		where title like concat('%',#{title},'%');
+	</select>
+	
+	<select id="noOfTitle" parameterType="string" resultType="int">
+		select no
+		from wikipage
+		where title = #{title}
+	</select>
+	
+	<insert id="insertPage" parameterType="WikiMetaDto">
+		insert into wikipage (title, uri, wdate)
+		values (#{title}, #{uri}, sysdate())
+	</insert>
+	
+	<delete id="deletePage" parameterType="int">
+		delete
+		from wikipage
+		where no = #{no}
+	</delete>
+	
+	<update id="updatePage" parameterType="WikiMetaDto">
+		update qna 
+		set title = #{title}, wdate = sysdate()
+		where no = ${no}
+	</update>
+	
+	<select id="searchByKeyword" parameterType="string" resultType="WikiMetaDto">
+		select p.no, p.title, p.uri, p.wdate
+		from wikipage p inner join pagekeyword pk
+		on p.no = pk.pageno
+		inner join keyword k
+		on pk.keywordno = k.no
+		where k.keyword = #{keyword}
+	</select>
+	
+	<select id="noOfKeyword" parameterType="string" resultType="int">
+		select no
+		from keyword
+		where keyword = #{keyword}
+	</select>
+	
+	<select id="numOfKeyword" parameterType="string" resultType="int">
+		select count(no)
+		from keyword
+		where keyword = #{keyword}
+	</select>
+	
+	<insert id="insertKeyword" parameterType="string">
+		insert into keyword (keyword)
+		values (#{keyword})
+	</insert>
+	
+	<insert id="insertPageKeyword" parameterType="hashMap">
+		insert into pagekeyword (pageno, keyno)
+		values (#{pageno}, #{keyno})
+	</insert>
+	
+	<delete id="deletePageKeyword" parameterType="hashMap">
+		delete
+		from pagekeyword
+		where pageno = #{pageno} and keyno = #(keyno)
+	</delete>
+	
+	
+
+</mapper>
