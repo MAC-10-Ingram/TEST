@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HTMLEditServiceImpl implements HTMLEditService {
 	
-	private final String base = "public/wikipage/";
+	private final String base = "/wikipage/";
 	
 	@Override
 	public void deletePage(String uri) throws Exception {
@@ -94,7 +94,7 @@ public class HTMLEditServiceImpl implements HTMLEditService {
 	
 	private void createFile(String uri, List<String> content) throws Exception {
 		ClassPathResource resource = new ClassPathResource(uri); 
-		
+		File tempfile = new File(resource.getURI());
 		Path path = Paths.get(resource.getURI()); 
 		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path.toString(), false));
 		bufferedWriter.write("");

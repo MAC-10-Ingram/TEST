@@ -4,7 +4,7 @@
 
 <mapper namespace="com.happyhouse.mapper.WikiMapper">
 
-	<select id="selectAll">
+	<select id="selectAll" resultType="WikiMetaDto">
 		select *
 		from wikipage
 		order by wdate desc
@@ -70,10 +70,10 @@
 		values (#{pageno}, #{keyno})
 	</insert>
 	
-	<delete id="deletePageKeyword" parameterType="hashMap">
+	<delete id="deletePageKeyword" parameterType="int">
 		delete
 		from pagekeyword
-		where pageno = #{pageno} and keyno = #(keyno)
+		where pageno = #{pageno}
 	</delete>
 	
 	

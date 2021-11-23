@@ -90,12 +90,9 @@ public class WikiServiceImpl implements WikiService {
 	}
 
 	@Override
-	public void deletePageKeyword(int pageno, int keyno) throws Exception {
+	public void deletePageKeyword(int pageno) throws Exception {
 		// TODO Auto-generated method stub
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("pageno", pageno);
-		map.put("keyno", keyno);
-		dao.deletePageKeyword(map);
+		dao.deletePageKeyword(pageno);
 
 	}
 

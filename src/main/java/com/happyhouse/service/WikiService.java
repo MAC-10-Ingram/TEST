@@ -22,5 +22,5 @@ public interface WikiService {
 	public int numOfKeyword(String keyword) throws Exception;
 	
 	void insertPageKeyword(int pageno, int keyno) throws Exception;
-	void deletePageKeyword(int pageno, int keyno) throws Exception;
+	void deletePageKeyword(int pageno) throws Exception;
 }

@@ -23,5 +23,5 @@ public interface WikiMapper {
 	int numOfKeyword(String keyword) throws SQLException;
 	
 	void insertPageKeyword(Map map) throws SQLException;
-	void deletePageKeyword(Map map) throws SQLException;
+	void deletePageKeyword(int pageno) throws SQLException;
 }
