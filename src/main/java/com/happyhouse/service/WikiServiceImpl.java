@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.happyhouse.mapper.WikiMapper;
 import com.happyhouse.model.WikiMetaDto;
 
+@Service
 public class WikiServiceImpl implements WikiService {
 	@Autowired
 	WikiMapper dao;
