@@ -25,4 +25,5 @@ public class HouseInfoDto {
 	private String recentPrice;	
 	private String distance;
 	private String jwt;
+	private String dongCount;
 }

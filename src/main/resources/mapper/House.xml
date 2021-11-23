@@ -77,7 +77,7 @@
 	</select>
 	
 	<select id="getPopularDong" resultType="houseInfoDto">
-		select d.dongName
+		select count(d.dongName) dongCount, d.dongName
 		from recentdong r
 		join dongcode d
 		on r.dongCode = d.dongCode
