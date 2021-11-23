@@ -13,8 +13,8 @@ public interface HouseService {
 	List<SidoGugunCodeDto> getSido() throws Exception;
 	List<SidoGugunCodeDto> getGugunInSido(String sido) throws Exception;
 	List<HouseInfoDto> getDongInGugun(String gugun) throws Exception;
-	List<HouseInfoDto> getAptInDong(String dong, HttpSession session) throws Exception;
-	List<HouseInfoDto> getAptInAptName(String aptName, HttpSession session) throws Exception;
+	List<HouseInfoDto> getAptInDong(String dong, String id) throws Exception;
+	List<HouseInfoDto> getAptInAptName(String aptName, String id) throws Exception;
 	List<HouseInfoDto> getPopularDong() throws SQLException;
 	List<HouseInfoDto> getPopularApt() throws SQLException;
 }

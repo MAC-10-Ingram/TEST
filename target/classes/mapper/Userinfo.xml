@@ -16,7 +16,7 @@
 	</select>
 	
 	<update id="updateUser" parameterType="UserInfoDto">
-		update userinfo set email = #{email}, password = #{password}, name = #{name}
+		update userinfo set email = #{email}, password = #{password}, name = #{name}, address = #{address}, lat = #{lat}, lng = #{lng}
 		where id = #{id}
 	</update>
 	

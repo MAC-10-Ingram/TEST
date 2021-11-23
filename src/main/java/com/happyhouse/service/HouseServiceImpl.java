@@ -36,31 +36,21 @@ public class HouseServiceImpl implements HouseService {
 	}
 
 	@Override
-	public List<HouseInfoDto> getAptInDong(String dong, HttpSession session) throws Exception {
-		if (session.getAttribute("id") == null) {
-			houseMapper.insertRecentDong(dong);
-			return houseMapper.getAptInDong(dong);
-		} else {
-			houseMapper.insertRecentDong(dong);
-			Map<String, String> map = new HashMap<>();
-			map.put("dong", dong);
-			map.put("id", (String)session.getAttribute("id"));
-			return houseMapper.getAptInDongByLogin(map);
-		}
+	public List<HouseInfoDto> getAptInDong(String dong, String id) throws Exception {
+		houseMapper.insertRecentDong(dong);
+		Map<String, String> map = new HashMap<>();
+		map.put("dong", dong);
+		map.put("id", id);
+		return houseMapper.getAptInDongByLogin(map);
 	}
 
 	@Override
-	public List<HouseInfoDto> getAptInAptName(String aptName, HttpSession session) throws Exception {
-		if (session.getAttribute("id") == null) {
-			houseMapper.insertRecentApt(aptName);
-			return houseMapper.getAptInAptName(aptName);
-		} else {
-			houseMapper.insertRecentApt(aptName);
-			Map<String, String> map = new HashMap<>();
-			map.put("aptName", aptName);
-			map.put("id", (String)session.getAttribute("id"));
-			return houseMapper.getAptInAptNameByLogin(map);
-		}
+	public List<HouseInfoDto> getAptInAptName(String aptName, String id) throws Exception {
+		houseMapper.insertRecentApt(aptName);
+		Map<String, String> map = new HashMap<>();
+		map.put("aptName", aptName);
+		map.put("id", id);
+		return houseMapper.getAptInAptNameByLogin(map);
 	}
 
 	@Override

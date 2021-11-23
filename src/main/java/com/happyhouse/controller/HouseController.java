@@ -39,13 +39,13 @@ public class HouseController {
 	}
 	
 	@GetMapping("/apt")
-	public ResponseEntity<List<HouseInfoDto>> apt(@RequestParam("dong") String dong, HttpSession session) throws Exception {
-		return new ResponseEntity<List<HouseInfoDto>>(houseService.getAptInDong(dong, session), HttpStatus.OK);
+	public ResponseEntity<List<HouseInfoDto>> apt(@RequestParam("dong") String dong, String id) throws Exception {
+		return new ResponseEntity<List<HouseInfoDto>>(houseService.getAptInDong(dong, id), HttpStatus.OK);
 	}
 	
 	@GetMapping("/apt2")
-	public ResponseEntity<List<HouseInfoDto>> apt2(@RequestParam("aptName") String aptName, HttpSession session) throws Exception {
-		return new ResponseEntity<List<HouseInfoDto>>(houseService.getAptInAptName(aptName, session), HttpStatus.OK);
+	public ResponseEntity<List<HouseInfoDto>> apt2(@RequestParam("aptName") String aptName, String id) throws Exception {
+		return new ResponseEntity<List<HouseInfoDto>>(houseService.getAptInAptName(aptName, id), HttpStatus.OK);
 	}
 	
 	@GetMapping("/popularDong")
