@@ -87,7 +87,7 @@
 	</select>
 	
 	<select id="getPopularApt" resultType="houseInfoDto">
-		select aptName
+		select count(aptName) aptCount, aptName
 		from recentApt
 		group by aptName
 		order by count(aptName) desc

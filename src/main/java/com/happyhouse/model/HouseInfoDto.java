@@ -26,4 +26,5 @@ public class HouseInfoDto {
 	private String distance;
 	private String jwt;
 	private String dongCount;
+	private String aptCount;
 }
